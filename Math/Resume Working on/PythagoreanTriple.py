@@ -21,11 +21,9 @@ def pythagoreanTriple(a):
         c=int(k+1)
         return [a,b,c]
     else:
-        SmT=2
-        SpT=a
         t=int((a-2)/2)
         s=int((a+2)/2)
-        b=int((s*s-t*t)/2)
+        b=int(s*t)
         c=int((s*s+t*t)/2)
         return [a,b,c]
 
@@ -35,6 +33,7 @@ if __name__ == '__main__':
     a = int(input().strip())
 
     triple = pythagoreanTriple(a)
+    #triple = pythagoreanTriple(int(1e9-1))
 
     fptr.write(' '.join(map(str, triple)))
     fptr.write('\n')
