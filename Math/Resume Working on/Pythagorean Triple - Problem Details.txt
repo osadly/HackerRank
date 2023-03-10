@@ -1,0 +1,32 @@
+0	Even
+1	Odd
+2	Even
+3	Even
+4	Even
+5	Even
+6	Even
+7	Even
+8	Odd
+9	Odd
+10	Odd
+11	Odd
+12	Odd
+13	Odd
+14	Odd
+15	Even
+16	Even
+17	Even
+18	Odd
+19	Odd
+20	Either Odd or Even
+21	Even
+22	Even
+23	Either Odd or Even
+24	Even
+25	Either Odd or Even
+26	Either Odd or Even
+27	Either Odd or Even
+28	Either Odd or Even
+29	Either Odd or Even
+30	Either Odd or Even
+31	Either Odd or Even
