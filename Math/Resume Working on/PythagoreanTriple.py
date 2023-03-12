@@ -16,15 +16,17 @@ import sys
 def pythagoreanTriple(a):
     k=0
     if a%2==1:
-        k=int((a*a-1)/2)
+        ap2=int(a*a)
+        ap2_1=int(ap2-1)
+        k=int(ap2_1//2)     # use // instead of / to get accurate results
         b=int(k)
         c=int(k+1)
         return [a,b,c]
     else:
-        t=int((a-2)/2)
-        s=int((a+2)/2)
+        t=int((a-2)//2)     # use // instead of / to get accurate results
+        s=int((a+2)//2)     # use // instead of / to get accurate results
         b=int(s*t)
-        c=int((s*s+t*t)/2)
+        c=int((s*s+t*t)//2) # use // instead of / to get accurate results
         return [a,b,c]
 
 if __name__ == '__main__':
