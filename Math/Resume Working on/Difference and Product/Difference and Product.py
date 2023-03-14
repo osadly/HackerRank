@@ -20,16 +20,21 @@ def solve(d, p):
     ret=0
     if d<0:
         return 0
+
     if d==0:
+        if p==0:
+            return 1
         if n*n==p:
             return 2
         else:
             return 0
-    
+
     for i in range(n+1):
         if i * (i+d) == p:
             ret+=4
     return ret
+        
+
         
 
 if __name__ == '__main__':
