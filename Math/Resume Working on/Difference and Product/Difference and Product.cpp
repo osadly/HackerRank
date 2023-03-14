@@ -1,0 +1,115 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+string ltrim(const string &);
+string rtrim(const string &);
+vector<string> split(const string &);
+
+/*
+ * Complete the 'solve' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts following parameters:
+ *  1. INTEGER d
+ *  2. INTEGER p
+ */
+
+int solve(int d, int p) {
+    if(d<0) {
+        return 0;
+    } 
+    long long n=(long long)(sqrt(p));
+    if(d==0) {
+        if ( n*n==(long long)p ) { return 2; }
+        else { return 0; }
+    }
+    int ret=0;
+    for (long long i=0;i<=n;i++) {
+        if(i * (i+d) == p) { 
+            //cout << i << "," << i+d << endl; 
+            ret+=4;
+        }
+        //if( (d!=0) && (i * (i-d) == p) ) { cout << i << "," << i-d << endl; ret+=2; }
+        /*if (p%i==0) {
+            long long n1=i,n2=(long long)(p/i);
+            cout << n1 << "," << n2 << endl;
+            if(d==0 && n1==n2) {
+                ret+=2;
+            }
+            else if(abs(n1-n2)==d) {
+                ret+=4;
+            }
+        }*/
+    }
+    return ret;
+
+}
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    string t_temp;
+    getline(cin, t_temp);
+
+    int t = stoi(ltrim(rtrim(t_temp)));
+
+    for (int t_itr = 0; t_itr < t; t_itr++) {
+        string first_multiple_input_temp;
+        getline(cin, first_multiple_input_temp);
+
+        vector<string> first_multiple_input = split(rtrim(first_multiple_input_temp));
+
+        int d = stoi(first_multiple_input[0]);
+
+        int p = stoi(first_multiple_input[1]);
+
+        int result = solve(d, p);
+
+        fout << result << "\n";
+    }
+
+    fout.close();
+
+    return 0;
+}
+
+string ltrim(const string &str) {
+    string s(str);
+
+    s.erase(
+        s.begin(),
+        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
+    );
+
+    return s;
+}
+
+string rtrim(const string &str) {
+    string s(str);
+
+    s.erase(
+        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
+        s.end()
+    );
+
+    return s;
+}
+
+vector<string> split(const string &str) {
+    vector<string> tokens;
+
+    string::size_type start = 0;
+    string::size_type end = 0;
+
+    while ((end = str.find(" ", start)) != string::npos) {
+        tokens.push_back(str.substr(start, end - start));
+
+        start = end + 1;
+    }
+
+    tokens.push_back(str.substr(start));
+
+    return tokens;
+}
