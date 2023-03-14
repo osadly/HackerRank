@@ -16,9 +16,10 @@ vector<string> split(const string &);
  */
 
 int solve(int d, int p) {
-    if(d<0) {
-        return 0;
-    } 
+    if(d<0) { return 0; } 
+    
+    if(p==0 && d==0) { return 1; }
+
     long long n=(long long)(sqrt(p));
     if(d==0) {
         if ( n*n==(long long)p ) { return 2; }
@@ -30,17 +31,6 @@ int solve(int d, int p) {
             //cout << i << "," << i+d << endl; 
             ret+=4;
         }
-        //if( (d!=0) && (i * (i-d) == p) ) { cout << i << "," << i-d << endl; ret+=2; }
-        /*if (p%i==0) {
-            long long n1=i,n2=(long long)(p/i);
-            cout << n1 << "," << n2 << endl;
-            if(d==0 && n1==n2) {
-                ret+=2;
-            }
-            else if(abs(n1-n2)==d) {
-                ret+=4;
-            }
-        }*/
     }
     return ret;
 
