@@ -18,6 +18,16 @@ import sys
 def solve(d, p):
     if d<0:
         return 0
+    if d==0 and p==0:
+        return 1
+    elif p==0:
+        return 2
+    elif d==0:
+        n=int(math.sqrt(p))
+        if n*n==p:
+            return 2
+        else:
+            return 0
     b,c=d,-1*p
     t=math.sqrt(b*b-4*1*c)
     if int(t) != t:
@@ -47,7 +57,7 @@ def solve(d, p):
             
     s=set(tuple(i) for i in lst_pairs)
     #print(lst_pairs)
-    return len(list(s))
+    return len(list(s))        
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
