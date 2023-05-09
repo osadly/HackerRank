@@ -1,0 +1,3 @@
+I see that right logic is different than what I implemented thinking it is the correct algorithm
+
+it is not comparing one by one - because in one case (sheet 3 in excel file) is showing different result
