@@ -17,8 +17,15 @@ def gridlandMetro(n, m, k, track):
 		
 		dictRows_Trks[track[i][0]-1].append([track[i][1]-1,track[i][2]-1])
 		
-		szRowsWthTrks=len(dictRows_Trks)
-		ret = (n-szRowsWthTrks)*m
+	szRowsWthTrks=len(dictRows_Trks)
+	ret = (n-szRowsWthTrks) * m
+    
+    for i in range(szRowsWthTrks):
+        thisRowLst = dictRows_Trks[track[i][0]-1]
+        strt, end = 0,m-1
+        
+            
+            
 
     #rowsWthTrksLst_Unq = list(set(rowsWthTrksLst_ALL))
         
