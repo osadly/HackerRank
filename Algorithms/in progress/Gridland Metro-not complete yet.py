@@ -22,8 +22,11 @@ def gridlandMetro(n, m, k, track):
     
     for i in range(szRowsWthTrks):
         thisRowLst = dictRows_Trks[track[i][0]-1]
+               
+        thisRowLstSrtd1=sorted(thisRowLst,key=lambda x:x[0])
+        thisRowLstSrtd2=sorted(thisRowLstSrtd1,key=lambda x:x[1],reverse=True)
         strt, end = 0,m-1
-        
+        for j in range(len(thisRowLstSrtd2)):
             
             
 
