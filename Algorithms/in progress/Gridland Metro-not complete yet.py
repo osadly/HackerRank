@@ -23,10 +23,12 @@ def gridlandMetro(n, m, k, track):
     for i in range(szRowsWthTrks):
         thisRowLst = dictRows_Trks[track[i][0]-1]
                
-        thisRowLstSrtd1=sorted(thisRowLst,key=lambda x:x[0])
-        thisRowLstSrtd2=sorted(thisRowLstSrtd1,key=lambda x:x[1],reverse=True)
+        # sort each array for tracks in each row with tracks : How? by start of each track which is x[0] - rememebr that each array has two elements
+        # first element is to FROM/start of the track - last element is the TO/end of the track so we are sorting here according to the first element of the array
+        thisRowLstSrtd=sorted(thisRowLst,key=lambda x:x[0]) 
+        #thisRowLstSrtd2=sorted(thisRowLstSrtd1,key=lambda x:x[1],reverse=True)
         strt, end = 0,m-1
-        for j in range(len(thisRowLstSrtd2)):
+        for j in range(len(thisRowLstSrtd)):
             
             
 
