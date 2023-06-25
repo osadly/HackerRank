@@ -16,22 +16,26 @@ import sys
 #
 
 def weightedUniformStrings(s, queries):
-    #alpha='abcdefghijklmnopqrstuvwxyz'
+    s='abbcccaabbbbxzzzz'
     orda=ord('a')
-
-    wts=[]
+    arSubStr=[]
     for i in range(len(s)):
-        ch=s[i]
-        if i>0 and ch==s[i-1]:
-                x=wts[len(wts)-1]
-                wts.append(x+ord(ch)-orda+1)
+        if i>0 and s[i]==s[i-1]:
+            tmp=len(arSubStr)
+            arSubStr[tmp-1]+=s[i]
         else:
-            wts.append(ord(ch)-orda+1)
+            arSubStr.append(s[i])
+
+    arSubStrMax=[0]*26
+    for e in arSubStr:
+        idx=ord(e[0])-orda
+        arSubStrMax[idx]=max(arSubStrMax[idx],len(e))
+        
+    #for i in range(len(arSubStrMax)):
+    #    if arSubStrMax[i]>0:
+    #        arSubStrMax[i]*=(i+1)
     
-    for q in queries:
-        if wts.find(q):
-            print("Yes")
-    
+    print(arSubStr,arSubStrMax)
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
