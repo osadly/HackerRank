@@ -16,7 +16,7 @@ import sys
 #
 
 def weightedUniformStrings(s, queries):
-    s='abbcccaabbbbxzzzz'
+    #s='abbcccaabbbbxzzzz'
     orda=ord('a')
     arSubStr=[]
     for i in range(len(s)):
