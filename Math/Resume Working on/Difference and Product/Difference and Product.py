@@ -36,33 +36,34 @@ def solve(d, p):
         else:
             return 0
     else:
+        lst_pairs=[]
         b,c=d,-1*p
         if b*b-4*1*c >= 0:
             t=math.sqrt(b*b-4*1*c)
             if int(t) != t:
                 return 0
             t=int(t)
-            lst_pairs=[]
+            
             if (-1*b + t)%2==0:
                 x=int ((-1*b + t)//2)
-                if x!=0 and p%x==0:
-                    y=int(p//x)
-                    lst_pairs.append([x,y])
+                lst_pairs.append([x,x+d])
             if (-1*b - t)%2==0:
                 x=int ((-1*b - t)//2)
-                if x!=0 and p%x==0:
-                    y=int(p//x)
-                    lst_pairs.append([x,y])
-            if (b + t)%2==0:
-                x=int ((b + t)//2)
-                if x!=0 and p%x==0:
-                    y=int(p//x)
-                    lst_pairs.append([x,y])
-            if (b - t)%2==0:
-                x=int ((b - t)//2)
-                if x!=0 and p%x==0:
-                    y=int(p//x)
-                    lst_pairs.append([x,y])
+                lst_pairs.append([x,x+d])
+
+        b,c=-1*d,-1*p
+        if b*b-4*1*c >= 0:
+            t=math.sqrt(b*b-4*1*c)
+            if int(t) != t:
+                return 0
+            t=int(t)
+
+            if (-1*b + t)%2==0:
+                x=int ((-1*b + t)//2)
+                lst_pairs.append([x,x+d])
+            if (-1*b - t)%2==0:
+                x=int ((-1*b - t)//2)
+                lst_pairs.append([x,x+d])
             
     s=set(tuple(i) for i in lst_pairs)
     #print(lst_pairs)
