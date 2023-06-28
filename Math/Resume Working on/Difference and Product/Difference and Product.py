@@ -37,37 +37,32 @@ def solve(d, p):
             return 0
     else:
         lst_pairs=[]
-        b,c=d,-1*p
-        if b*b-4*1*c >= 0:
-            t=math.sqrt(b*b-4*1*c)
-            if int(t) != t:
-                return 0
-            t=int(t)
-            
-            if (-1*b + t)%2==0:
-                x=int ((-1*b + t)//2)
-                lst_pairs.append([x,x+d])
-            if (-1*b - t)%2==0:
-                x=int ((-1*b - t)//2)
-                lst_pairs.append([x,x+d])
-
-        b,c=-1*d,-1*p
-        if b*b-4*1*c >= 0:
-            t=math.sqrt(b*b-4*1*c)
-            if int(t) != t:
-                return 0
-            t=int(t)
-
-            if (-1*b + t)%2==0:
-                x=int ((-1*b + t)//2)
-                lst_pairs.append([x,x+d])
-            if (-1*b - t)%2==0:
-                x=int ((-1*b - t)//2)
-                lst_pairs.append([x,x+d])
-            
-    s=set(tuple(i) for i in lst_pairs)
-    #print(lst_pairs)
-    return len(list(s))    
+        t = d*d + 4*p
+        if t >= 0:
+            scndTrm = math.sqrt(t)
+            if scndTrm==int(scndTrm):
+                x1=d+scndTrm
+                if x1%2==0:
+                    x1//=2
+                    lst_pairs.append([int(x1),int(x1-d)])
+                
+                x2=d-scndTrm
+                if x2%2==0:
+                    x2//=2
+                    lst_pairs.append([int(x2),int(x2-d)])
+                    
+                x3=-d+scndTrm
+                if x3%2==0:
+                    x3//=2
+                    lst_pairs.append([int(x3),int(x3+d)])
+                    
+                x4=-d-scndTrm
+                if x4%2==0:
+                    x4//=2
+                    lst_pairs.append([int(x4),int(x4+d)])
+        
+        s=set(tuple(i) for i in lst_pairs)    
+        return len(list(s))
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
